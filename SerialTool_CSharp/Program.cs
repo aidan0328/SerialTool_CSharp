@@ -1,12 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO.Ports;
 
 namespace SerialTool_CSharp {
     class Program {
+        SerialPort serialPort;
         static void Main(string[] args) {
+            string[] ports = SerialPort.GetPortNames();
+
+            foreach (string p in ports) {
+                Console.WriteLine(p);
+            }
+
+            Console.WriteLine("Press ENTER to exit.");
+            Console.ReadLine();
         }
     }
 }
