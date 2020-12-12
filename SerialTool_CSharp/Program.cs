@@ -6,9 +6,15 @@ namespace SerialTool_CSharp {
         public static void Main() {
             SerialPort serialPort = new SerialPort("COM3", 115200);
             serialPort.Open();
-            string str = serialPort.ReadLine();
+            Byte[] buffer = new Byte[10];
+            int readBytes = serialPort.Read(buffer, 0, buffer.Length);
             serialPort.Close();
-            Console.WriteLine($"從 {serialPort.PortName} 收到 {str}");
+
+            Console.WriteLine($"從 {serialPort.PortName} 收到");
+            for (int i = 0; i < readBytes; i++) {
+                Console.Write(String.Format("0x{0:X} ,", buffer[i]));
+            }
+            Console.WriteLine();
 
             Console.WriteLine("Press ENTER to exit.");
             Console.ReadLine();
