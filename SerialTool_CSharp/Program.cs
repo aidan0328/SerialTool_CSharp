@@ -27,12 +27,16 @@ namespace SerialTool_CSharp {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private static void OnTimedEvent(Object source, ElapsedEventArgs e) {
-            if ((serialPort.IsOpen)
-             && (readBytes > 0)) {
-                Console.WriteLine($"從 {serialPort.PortName} 收到 {packetNumber} 筆封包，長度為 {readBytes} bytes");
-                serialPort.Write(packet, 0, readBytes);
-                packetNumber = 0;
-                readBytes = 0;
+            try {
+                if ((serialPort.IsOpen)
+                 && (readBytes > 0)) {
+                    Console.WriteLine($"從 {serialPort.PortName} 收到 {packetNumber} 筆封包，長度為 {readBytes} bytes");
+                    serialPort.Write(packet, 0, readBytes);
+                    packetNumber = 0;
+                    readBytes = 0;
+                }
+            } catch (ArgumentException ex) {
+                Console.WriteLine(ex.Message);
             }
         }
 
