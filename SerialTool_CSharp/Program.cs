@@ -32,11 +32,12 @@ namespace SerialTool_CSharp {
                  && (readBytes > 0)) {
                     Console.WriteLine($"從 {serialPort.PortName} 收到 {packetNumber} 筆封包，長度為 {readBytes} bytes");
                     serialPort.Write(packet, 0, readBytes);
-                    packetNumber = 0;
-                    readBytes = 0;
                 }
             } catch (ArgumentException ex) {
                 Console.WriteLine(ex.Message);
+            } finally {
+                packetNumber = 0;
+                readBytes = 0;
             }
         }
 
