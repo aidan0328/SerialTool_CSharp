@@ -1,10 +1,3 @@
----
-tags: Serial Port, C#
----
-<!-- 使用黑色主題 -->
-{%hackmd BkVfcTxlQ %}
-<!-- 決定 CSS 樣板 -->
-{%hackmd @aidan/inc_hackmd_css %}
 
 # SerialPort (Console)
 ## <span class="Title">主題0. GetPortNames()</span>
@@ -285,9 +278,6 @@ namespace SerialTool_CSharp {
     }
 }
 ```
-:::spoiler 補充說明
-
-
 
 註冊事件
 ![](https://i.imgur.com/BbmYdWl.png)
@@ -301,7 +291,6 @@ SerialPort 的 DataReceived 是一個 **SerialDataReceivedEventHandler** 型別�
 ![](https://i.imgur.com/EwR1ylb.png)
 <span class="Figure">(Fig. 3-3)</span>
 
-:::
 
 ## <span class="Title">主題4. 傳送與接收同時發生(全雙工) </span>
 ### <span class="SubTitle">Lab4-1 使用 System.Timers.Timer  </span>
